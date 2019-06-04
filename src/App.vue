@@ -2,7 +2,7 @@
   <v-app color="grey lighten-4">
     <v-navigation-drawer v-model="sidenav" temporary app>
       <v-list>
-        <v-list-tile v-for="item in menuItems" :key="item.title" router :to="item.link">
+        <v-list-tile v-for="item in menuItems" :key="item.title" :to="item.link">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -11,20 +11,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar flat app>
-      <v-toolbar-side-icon @click="sidenav = !sidenav" class="hidden-sm-and-up"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="sidenav = !sidenav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title class="primary--text">
         <router-link to="/" tag="span" style="cursor: pointer">DevMeetup</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn
-          flat
-          color="primary"
-          v-for="item in menuItems"
-          :key="item.title"
-          router
-          :to="item.link"
-        >
+        <v-btn flat color="primary" v-for="item in menuItems" :key="item.title" :to="item.link">
           <v-icon left>{{ item.icon }}</v-icon>
           <span>{{ item.title }}</span>
         </v-btn>

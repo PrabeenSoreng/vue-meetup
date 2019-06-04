@@ -1,9 +1,66 @@
 <template>
-  <div>
-    <h1>The Home Page</h1>
-  </div>
+  <v-container>
+    <v-layout row wrap class="mb-2">
+      <v-flex xs12 sm6 class="text-xs-center text-sm-right">
+        <v-btn large flat router to="/meetups" class="primary">Explore Meetups</v-btn>
+      </v-flex>
+      <v-flex xs12 sm6 class="text-xs-center text-sm-left">
+        <v-btn large flat router to="/meetup/new" class="primary">Organize Meetup</v-btn>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap class="mt-2">
+      <v-flex xs12>
+        <v-carousel>
+          <v-carousel-item v-for="meetup in meetups" :key="meetup.id" :src="meetup.imageUrl">
+            <div class="title">{{ meetup.title }}</div>
+          </v-carousel-item>
+        </v-carousel>
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap class="mt-2">
+      <v-flex xs12 class="text-xs-center">
+        <p>Join out awesome meetups!</p>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      meetups: [
+        {
+          imageUrl:
+            "https://images.pexels.com/photos/1293430/pexels-photo-1293430.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
+          id: 1,
+          title: "Meetup in NewYork"
+        },
+        {
+          imageUrl:
+            "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
+          id: 2,
+          title: "Meetup in Paris"
+        },
+        {
+          imageUrl:
+            "http://files.hostgator.co.in/hostgator217845/image/gateway-of-india-mumbai-1.jpg",
+          id: 3,
+          title: "Meetup in India"
+        }
+      ]
+    };
+  }
+};
 </script>
+
+<style scoped>
+.title {
+  position: absolute;
+  bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2em;
+  padding: 20px;
+}
+</style>
