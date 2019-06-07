@@ -33,28 +33,12 @@
 <script>
 export default {
   data() {
-    return {
-      meetups: [
-        {
-          imageUrl:
-            "https://images.pexels.com/photos/1293430/pexels-photo-1293430.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
-          id: 1,
-          title: "Meetup in NewYork"
-        },
-        {
-          imageUrl:
-            "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
-          id: 2,
-          title: "Meetup in Paris"
-        },
-        {
-          imageUrl:
-            "http://files.hostgator.co.in/hostgator217845/image/gateway-of-india-mumbai-1.jpg",
-          id: 3,
-          title: "Meetup in India"
-        }
-      ]
-    };
+    return {};
+  },
+  computed: {
+    meetups() {
+      return this.$store.getters.featuredMeetups;
+    }
   },
   methods: {
     onLoadMeetup(id) {
