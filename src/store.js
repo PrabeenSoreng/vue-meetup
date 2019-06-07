@@ -11,21 +11,27 @@ export default new Vuex.Store({
           "https://images.pexels.com/photos/1293430/pexels-photo-1293430.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
         id: "1",
         title: "Meetup in NewYork",
-        date: "2019-7-17"
+        date: "2019-7-17",
+        location: "New York, USA",
+        description: "New York welcomes you, please join for Kotlin meetup..."
       },
       {
         imageUrl:
           "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=650&w=940",
         id: "2",
         title: "Meetup in Paris",
-        date: "2019-7-21"
+        date: "2019-7-21",
+        location: "Paris, France",
+        description: "Paris welcomes you, join us for Node.js meetup..."
       },
       {
         imageUrl:
           "http://files.hostgator.co.in/hostgator217845/image/gateway-of-india-mumbai-1.jpg",
         id: "3",
-        title: "Meetup in India",
-        date: "2019-7-27"
+        title: "Meetup in Mumbai",
+        date: "2019-7-27",
+        location: "Mumbai, India",
+        description: "Mumbai welcomes you, join us for Startup meetup..."
       }
     ],
     user: {

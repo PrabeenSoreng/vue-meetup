@@ -63,6 +63,21 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
+              <h4 class="display-1">Chose a Date and Time</h4>
+            </v-flex>
+          </v-layout>
+          <v-layout row class="mb-2">
+            <v-flex xs12 sm5 offset-sm1>
+              <v-date-picker v-model="date"></v-date-picker>
+              <p>{{ date }}</p>
+            </v-flex>
+            <v-flex xs12 sm5 offset-sm1>
+              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+              <p>{{ time }}</p>
+            </v-flex>
+          </v-layout>
+          <v-layout row>
+            <v-flex xs12 sm6 offset-sm3>
               <v-btn type="submit" class="primary" :disabled="!valid">Create Meetup</v-btn>
             </v-flex>
           </v-layout>
@@ -80,8 +95,17 @@ export default {
       title: "",
       location: "",
       imageUrl: "",
-      description: ""
+      description: "",
+      date: new Date().toISOString().substr(0, 10),
+      time: new Date().getHours() + ":" + new Date().getMinutes()
     };
+  },
+  computed: {
+    submittableDateTime() {
+      const date = this.date;
+      const time = this.time;
+      return `${date} ${time}`;
+    }
   },
   methods: {
     onCreateMeetup() {
@@ -92,7 +116,7 @@ export default {
           location: this.location,
           imageUrl: this.imageUrl,
           description: this.description,
-          date: new Date()
+          date: this.submittableDateTime
         };
         this.$store.dispatch("createMeetup", meetupData);
         this.$refs.form.reset();
